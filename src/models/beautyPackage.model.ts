@@ -23,13 +23,13 @@ const beautyPackageSchema = new Schema<beautyPackageType>(
     bookings: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'bookings',
+        ref: 'Bookings',
       },
     ],
     specialist: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'spacialist',
+        ref: 'Spacialist',
       },
     ],
   },

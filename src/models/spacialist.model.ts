@@ -29,7 +29,7 @@ const spacialistSchema = new Schema<specialistType>(
     beautyPackages: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'beautyPackage',
+        ref: 'BeautyPackage',
       },
     ],
   },
