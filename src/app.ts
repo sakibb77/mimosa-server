@@ -6,6 +6,11 @@ import mongoSanitize from 'express-mongo-sanitize';
 import helmet from 'helmet';
 import hpp from 'hpp';
 import dotenv from 'dotenv';
+import authRouter from './routes/auth.route';
+import userRouter from './routes/user.route';
+import beautyPackageRouter from './routes/beautyPackage.route';
+import spacialistRouter from './routes/spacialist.route';
+import bookingRouter from './routes/booking.route';
 
 class App {
   private app: Application;
@@ -37,6 +42,13 @@ class App {
         message: 'welcome to memosa server',
       });
     });
+
+    //bypass routes
+    this.app.use('/api/auth', authRouter);
+    this.app.use('/api/users', userRouter);
+    this.app.use('/api/beauty_packages', beautyPackageRouter);
+    this.app.use('/api/spacialist', spacialistRouter);
+    this.app.use('/api/bookings', bookingRouter);
   }
 
   private connectToDatabase(): void {
