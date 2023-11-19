@@ -3,7 +3,7 @@ import { beautyPackageType } from './beautyPackage.type';
 
 export type specialistType = {
   name: string;
-  description: string;
+  designation: string;
   bio: string;
   photoUrl: string;
   dateOfBirth: string;
