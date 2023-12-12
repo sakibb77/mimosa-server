@@ -7,7 +7,7 @@ export interface UserMOdelInterface extends Model<userType> {
     email: string,
     password: string,
     photoUrl: string,
-    address: string,
+    address?: string,
     phoneNumber?: string
   ): Promise<userType>;
 
