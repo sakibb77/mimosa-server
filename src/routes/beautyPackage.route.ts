@@ -1,11 +1,11 @@
 import express, { Router } from 'express';
 import AuthMiddleware from '../middlewares/auth.middleware';
-import beautyPackageController from '../controllers/beautyPackage.controller';
+import BeautyPackageController from '../controllers/beautyPackage.controller';
 
 const beautyPackageRouter: Router = express.Router();
 
 const authInstance = new AuthMiddleware();
-const beautyPackageInstance = new beautyPackageController();
+const beautyPackageInstance = new BeautyPackageController();
 
 //get all beauty package
 beautyPackageRouter.get('/', beautyPackageInstance.getAllBeautyPackages);

@@ -3,7 +3,7 @@ import beautyPackageModel from '../models/beautyPackage.model';
 import { handleError } from '../errors/handle.error';
 import mongoose from 'mongoose';
 
-export default class beautyPackageController {
+export default class BeautyPackageController {
   constructor() {}
 
   public async getAllBeautyPackages(
