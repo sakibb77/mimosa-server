@@ -56,6 +56,7 @@ export default class UserController {
     try {
       const { uid } = req.params;
       const userId = req.user?._id;
+      const { name, photoUrl, address, phoneNumber } = req.body;
 
       if (!mongoose.Types.ObjectId.isValid(uid)) {
         res.status(404).json({ message: 'User not found' });
@@ -66,7 +67,16 @@ export default class UserController {
       }
 
       await Promise.resolve().then(async () => {
-        const user = await userModel.findById(uid);
+        const user = await userModel.findByIdAndUpdate(
+          uid,
+          {
+            name,
+            photoUrl,
+            address,
+            phoneNumber,
+          },
+          { new: true }
+        );
 
         res.status(200).json(user);
       });
@@ -75,5 +85,15 @@ export default class UserController {
     }
   }
 
-  public async getAllUser(req: Request, res: Response): Promise<void> {}
+  public async getAllUser(req: Request, res: Response): Promise<void> {
+    try {
+      await Promise.resolve().then(async () => {
+        const users = await userModel.find({});
+
+        res.status(200).json(users);
+      });
+    } catch (error: unknown) {
+      await handleError(error, res);
+    }
+  }
 }
